@@ -1,7 +1,7 @@
 /* Farm 2 Families Giving Gallop — site scripts */
 
 // ==== CONFIG: paste your Google Apps Script web app URL here (see README) ====
-const SHEET_ENDPOINT = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+   const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbxEpLfZrQSwn9vSHVGyXZXKDc48e3O_crZmAu-5WH4P-zIlXyi4rK2Rm3EjeP6VzHYG/exec";
 
 // Mobile nav
 const toggle = document.querySelector(".nav-toggle");
