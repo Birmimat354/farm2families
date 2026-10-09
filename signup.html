@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign Up — Farm 2 Families Giving Gallop</title>
+<meta name="description" content="Sign up for the Giving Gallop. No fee, no bib: just tell us you're coming and how many gift cards you'll bring to hand out.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><img src="img/logo.png" alt="Farm 2 Families"><span>Giving Gallop</span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="course.html">Course Info</a>
+      <a href="faq.html">FAQs</a>
+      <a href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Donate</a>
+      <a href="signup.html" aria-current="page">Sign Up</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head" style="background:#E6F7EF">
+  <div class="wrap signup-grid">
+
+    <div class="signup-info">
+      <h1 style="font-size:clamp(40px,6vw,60px)">Sign up to Gallop</h1>
+      <p style="font-size:20px">No registration fee, no bib, no timing chip. Just tell us you're coming and how many gift cards you're bringing to hand out. <strong style="color:#C8102E">The more the merrier!</strong></p>
+      <div class="quick">
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><div><strong>Saturday, Dec 12, 2026 · 11:00 AM</strong><br>Robbins Farm Park, Arlington, MA</div></div>
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/></svg><div><strong>Bring $25+ in wrapped gift cards.</strong><br>Lots of small ones beat one big one. Think Amazon, Target, Stop &amp; Shop.</div></div>
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><div><strong>Then donate $25+ to Boston Children's.</strong><br>Every Child Fund via Miles for Miracles. <a href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Donate here</a>.</div></div>
+      </div>
+      <img src="img/crosswalk.jpg" alt="Gallopers in sequined skirts and costumes crossing Mass Ave with gift cards">
+    </div>
+
+    <div class="form-card">
+      <form id="signup-form" class="stack" style="gap:22px" novalidate>
+        <div class="grid-2">
+          <div class="fld"><label class="lbl" for="firstName">First name</label><input class="field" id="firstName" name="firstName" type="text" placeholder="Kris" autocomplete="given-name" required></div>
+          <div class="fld"><label class="lbl" for="lastName">Last name</label><input class="field" id="lastName" name="lastName" type="text" placeholder="Kringle" autocomplete="family-name" required></div>
+        </div>
+        <div class="fld"><label class="lbl" for="email">Email</label><input class="field" id="email" name="email" type="email" placeholder="you@northpole.com" autocomplete="email" required></div>
+
+        <div class="fld" style="gap:10px">
+          <div class="lbl" id="amount-label">Gift cards I'm bringing to hand out</div>
+          <div class="amounts" role="group" aria-labelledby="amount-label">
+            <button type="button" class="amt" data-amount="25">$25</button>
+            <button type="button" class="amt" data-amount="50">$50</button>
+            <button type="button" class="amt" data-amount="100">$100</button>
+            <button type="button" class="amt" data-amount="250">$250</button>
+          </div>
+          <div class="custom">
+            <span class="dollar">$</span>
+            <input class="field" id="amount" name="amount" type="number" min="25" step="5" value="25" aria-label="Custom gift card amount">
+            <span class="hint">$25 minimum. Any amount above that is fair game, and the more the merrier!</span>
+          </div>
+        </div>
+
+        <div class="waiver">
+          <div class="lbl">Waiver</div>
+          <p>This is an open, unmarked course through neighborhoods, trails and sidewalks with cars, bikes, pedestrians, wild animals, reindeer, etc. I'm participating voluntarily, at my own risk, I'll follow all state and local laws, and I release Farm 2 Families and its organizers from any liability.</p>
+          <details class="full-waiver">
+            <summary>Read the full waiver</summary>
+            <p>[FULL WAIVER TEXT — paste your waiver here, or ask Claude to draft one for review.]</p>
+          </details>
+          <label class="check"><input type="checkbox" id="agree" name="agreed" required>I have read and agree to the waiver</label>
+          <div class="fld"><label class="lbl" for="signature">Type your full name to sign</label><input class="field sig" id="signature" name="signature" type="text" placeholder="Kris Kringle" autocomplete="name" required></div>
+        </div>
+
+        <div id="form-error" class="err" tabindex="-1" hidden></div>
+        <button type="submit" class="btn btn-red">Count me in!</button>
+        <p class="fine">Your sign-up lands in our Google Sheet so we know how many gallopers to expect. We'll only email you about the event.</p>
+      </form>
+
+      <div id="signup-done" class="done" hidden>
+        <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A8E6CF"/><path d="M7 12l3 3 7-7"/></svg>
+        <h2 style="font-size:40px">You're in, <span data-first></span>!</h2>
+        <p>Thanks for committing <strong data-amount></strong> in gift cards. We'll email you at <strong data-email></strong> with any updates before gallop day. Now go find a Santa suit.</p>
+        <a class="btn btn-red" href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Make your $25+ donation</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="name">Farm 2 Families Giving Gallop</div>
+    <nav><a href="course.html">Course Info</a><a href="faq.html">FAQs</a><a href="signup.html">Sign Up</a><a href="mailto:[EMAIL]">Contact</a></nav>
+    <div>© 2026 Farm 2 Families · Arlington, MA</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
