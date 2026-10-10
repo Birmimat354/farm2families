@@ -46,7 +46,6 @@ if (form) {
   const errBox = form.querySelector("#form-error");
   const submitBtn = form.querySelector("button[type=submit]");
   const step1 = document.getElementById("step-1");
-  const step2 = document.getElementById("step-2");
   const confirm = document.getElementById("signup-done");
   const gallopers = []; // everyone registered in this session
 
@@ -61,6 +60,15 @@ if (form) {
   };
   const fail = (msg) => { errBox.textContent = msg; errBox.hidden = false; errBox.focus(); };
   const scrollTo = (el) => el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  // Minor: show guardian field, relabel signature
+  const minorBox = form.querySelector("#isMinor");
+  const guardianFld = form.querySelector("#guardian-fld");
+  const sigLabel = form.querySelector("#sig-label");
+  minorBox.addEventListener("change", () => {
+    guardianFld.hidden = !minorBox.checked;
+    sigLabel.textContent = minorBox.checked ? "Parent / guardian: type your full name to sign" : "Type your full name to sign";
+  });
 
   const cheers = [
     "Santa has been notified.",
@@ -79,7 +87,10 @@ if (form) {
     if (!data.firstName.trim() || !data.lastName.trim()) return fail("We need your first and last name.");
     if (!/.+@.+\..+/.test(data.email)) return fail("Please enter a valid email.");
     if (!(data.amount >= 25)) return fail("Ho ho no: the minimum is $25 in gift cards.");
+    if (!data.mode) return fail("Runner or walker? Pick one so we can put you with the right guide.");
     if (!data.agreed || !data.signature.trim()) return fail("Please agree to the waiver and type your name to sign.");
+    data.isMinor = minorBox.checked;
+    if (data.isMinor && !(data.guardianName || "").trim()) return fail("Please enter the parent or guardian's full name.");
 
     submitBtn.disabled = true; submitBtn.textContent = "Saving your spot…";
     await sendToSheet({ type: "signup", ...data });
@@ -88,10 +99,12 @@ if (form) {
     // Confirmation
     confirm.querySelector("[data-first]").textContent = data.firstName.trim();
     confirm.querySelector("[data-amount]").textContent = "$" + data.amount;
+    confirm.querySelector("[data-mode]").textContent = data.mode === "Walker" ? "walker" : "runner";
     confirm.querySelector("[data-cheer]").textContent = cheers[(gallopers.length - 1) % cheers.length];
     const list = confirm.querySelector("[data-list]");
-    list.innerHTML = gallopers.map((g) => `<li>${g.firstName.trim()} ${g.lastName.trim()} · $${g.amount} in gift cards</li>`).join("");
+    list.innerHTML = gallopers.map((g) => `<li>${g.firstName.trim()} ${g.lastName.trim()} · ${g.mode} · $${g.amount} in gift cards</li>`).join("");
     form.hidden = true; confirm.hidden = false;
+    setStep(1, "done"); setStep(2, "active");
     scrollTo(step1);
     submitBtn.disabled = false; submitBtn.textContent = "Count me in!";
   });
@@ -102,34 +115,19 @@ if (form) {
     form.reset();
     form.querySelector("#email").value = keepEmail; // same household, likely same email
     amountInput.value = 25; syncButtons();
+    guardianFld.hidden = true; sigLabel.textContent = "Type your full name to sign";
+    setStep(1, "active");
     confirm.hidden = true; form.hidden = false;
     scrollTo(step1);
     form.querySelector("#firstName").focus();
   });
 
-  // Proceed to step 2
-  document.getElementById("to-step-2").addEventListener("click", () => {
-    setStep(1, "done"); setStep(2, "active");
-    step1.classList.add("collapsed");
-    step2.hidden = false;
-    step2.querySelector("[data-count]").textContent = gallopers.length === 1 ? "you" : `all ${gallopers.length} of you`;
-    scrollTo(step2);
-  });
-
-  // Donate button: opens Boston Children's in a new tab and reveals the "I donated" check-in
+  // Step 2: clicking Donate opens Boston Children's in a new tab and marks step 2 complete
   document.getElementById("donate-now").addEventListener("click", () => {
-    document.getElementById("donated-check").hidden = false;
-  });
-
-  // Honor-system completion of step 2
-  document.getElementById("i-donated").addEventListener("click", async (ev) => {
-    const btn = ev.currentTarget;
-    btn.disabled = true; btn.textContent = "Saving…";
-    const who = gallopers[gallopers.length - 1] || {};
-    await sendToSheet({ type: "donation", firstName: who.firstName, lastName: who.lastName, email: who.email, gallopers: gallopers.length });
     setStep(2, "done");
     document.getElementById("step-2-form").hidden = true;
     document.getElementById("all-done").hidden = false;
-    scrollTo(step2);
+    const who = gallopers[gallopers.length - 1] || {};
+    sendToSheet({ type: "donation", firstName: who.firstName, lastName: who.lastName, email: who.email || form.querySelector("#email").value, gallopers: gallopers.length });
   });
 }

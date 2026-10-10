@@ -1,9 +1,9 @@
 /**
  * Farm 2 Families Giving Gallop — sign-up receiver (v2)
- * Records sign-ups, and marks "Donation reported" when a galloper taps "I made my donation".
+ * Records sign-ups, and marks "Donate clicked" when a galloper clicks the Step 2 donate button.
  * After pasting: Deploy > Manage deployments > pencil > Version: New version > Deploy.
  */
-const HEADERS = ["Submitted", "First name", "Last name", "Email", "Gift card $", "Agreed to waiver", "Signature", "Donation reported", "Browser"];
+const HEADERS = ["Submitted", "First name", "Last name", "Email", "Runner / Walker", "Gift card $", "Agreed to waiver", "Signature", "Minor?", "Parent / guardian", "Donate clicked", "Browser"];
 
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
@@ -20,9 +20,9 @@ function doPost(e) {
     const email = String(d.email || "").trim().toLowerCase();
     let hits = 0;
     for (let r = 1; r < rows.length; r++) {
-      if (String(rows[r][3]).trim().toLowerCase() === email) { sheet.getRange(r + 1, 8).setValue("Yes — " + new Date().toLocaleDateString()); hits++; }
+      if (String(rows[r][3]).trim().toLowerCase() === email) { sheet.getRange(r + 1, 11).setValue("Yes — " + new Date().toLocaleDateString()); hits++; }
     }
-    if (!hits) sheet.appendRow([new Date(), d.firstName || "", d.lastName || "", d.email || "", "", "", "", "Yes (no matching sign-up)", d.userAgent || ""]);
+    if (!hits) sheet.appendRow([new Date(), d.firstName || "", d.lastName || "", d.email || "", "", "", "", "", "", "", "Yes (no matching sign-up)", d.userAgent || ""]);
     return ok();
   }
 
@@ -31,9 +31,12 @@ function doPost(e) {
     d.firstName || "",
     d.lastName || "",
     d.email || "",
+    d.mode || "",
     Number(d.amount) || 0,
     d.agreed ? "Yes" : "No",
     d.signature || "",
+    d.isMinor ? "Yes" : "",
+    d.guardianName || "",
     "",
     d.userAgent || ""
   ]);

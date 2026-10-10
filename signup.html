@@ -35,20 +35,21 @@
       <h1 style="font-size:clamp(40px,6vw,60px)">Sign up to Gallop</h1>
       <p style="font-size:20px">No registration fee, no bib, no timing chip. Just tell us you're coming and how many gift cards you're bringing to hand out. <strong style="color:#C8102E">The more the merrier!</strong></p>
       <div class="quick">
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><div><strong>Saturday, Dec 12, 2026 · 11:00 AM</strong><br>Robbins Farm Park, Arlington, MA</div></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/></svg><div><strong>Bring $25+ in wrapped gift cards.</strong><br>Lots of small ones beat one big one. Think Amazon, Target, Stop &amp; Shop.</div></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><div><strong>Then donate $25+ to Boston Children's.</strong><br>Every Child Fund via Miles for Miracles. <a href="#" data-donate>Donate here</a>.</div></div>
+        <div class="quick-row"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><p><strong>Saturday, Dec 12, 2026 · 11:00 AM</strong><br>Robbins Farm Park, Arlington, MA</p></div>
+        <div class="quick-row"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/></svg><p><strong>Bring $25+ in wrapped gift cards.</strong><br>Lots of small ones beat one big one. Think Amazon, Target, Stop &amp; Shop.</p></div>
+        <div class="quick-row"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><p><strong>Then donate to Boston Children's.</strong><br>Any amount, to the Every Child Fund via Miles for Miracles.</p></div>
       </div>
       <img src="crosswalk.jpg" alt="Gallopers in sequined skirts and costumes crossing Mass Ave with gift cards">
     </div>
 
     <div class="form-card steps">
+      <div class="steps-intro">Complete 2 steps to sign up:</div>
 
       <!-- STEP 1 -->
       <div id="step-1" class="step">
         <div class="step-head" data-step="1" data-state="active">
           <div class="step-num"><span class="n">1</span><svg class="tick" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
-          <div><div class="step-title">Sign up to Gallop</div><div class="step-sub">Name, email, gift cards, waiver. One minute, tops.</div></div>
+          <div><div class="step-title">Step 1 – Sign Up to Gallop</div><div class="step-sub">Name, email, runner or walker, gift cards, waiver.</div></div>
         </div>
         <div class="step-body">
         <form id="signup-form" class="stack" style="gap:22px" novalidate>
@@ -57,6 +58,14 @@
             <div class="fld"><label class="lbl" for="lastName">Last name</label><input class="field" id="lastName" name="lastName" type="text" placeholder="Kringle" autocomplete="family-name" required></div>
           </div>
           <div class="fld"><label class="lbl" for="email">Email</label><input class="field" id="email" name="email" type="email" placeholder="you@northpole.com" autocomplete="email" required></div>
+
+          <div class="fld" style="gap:10px">
+            <div class="lbl" id="mode-label">I'm galloping as a…</div>
+            <div class="choice" role="radiogroup" aria-labelledby="mode-label">
+              <label class="chip"><input type="radio" name="mode" value="Runner" required><span><b>Runner</b><small>9.6 mi, Park Ave route</small></span></label>
+              <label class="chip"><input type="radio" name="mode" value="Walker" required><span><b>Walker</b><small>7.4 mi, Menotomy Rocks route</small></span></label>
+            </div>
+          </div>
 
           <div class="fld" style="gap:10px">
             <div class="lbl" id="amount-label">Gift cards I'm bringing to hand out</div>
@@ -74,14 +83,28 @@
           </div>
 
           <div class="waiver">
-            <div class="lbl">Waiver</div>
-            <p>This is an open, unmarked course through neighborhoods, trails and sidewalks with cars, bikes, pedestrians, wild animals, reindeer, etc. I'm participating voluntarily, at my own risk, I'll follow all state and local laws, and I release Farm 2 Families and its organizers from any liability.</p>
+            <div class="lbl">Liability Waiver and Acknowledgement of Risk</div>
+            <p>Running and walking are potentially hazardous. This is an open, unmarked course through neighborhoods, trails and sidewalks shared with cars, bikes, pedestrians and wildlife, with no official timing, course support or transportation. By signing I confirm I'm medically able to participate, I take part voluntarily and at my own risk, and I release Farm 2 Families, its organizers and Boston Children's Hospital from liability.</p>
             <details class="full-waiver">
               <summary>Read the full waiver</summary>
-              <p>[FULL WAIVER TEXT — paste your waiver here, or ask Claude to draft one for review.]</p>
+              <div class="waiver-text">
+                <p><strong>Please read before you decide to join.</strong></p>
+                <p>I know that running and walking are potentially hazardous activities which could cause injury or death. I will not enter and participate unless I am medically able and properly trained, and by my digital signature I certify that I am medically able to perform this run / walk, am in good health, and am properly trained. I agree to abide by any decision of any event organizer or guide relative to any aspect of my participation in this event, including the right to deny or suspend my participation for any reason whatsoever. I attest that I have read the rules and expectations of the event and agree to abide by them.</p>
+                <p>I understand that the Farm 2 Families Giving Gallop is not a race. It takes place on an open, unmarked course that uses public roads, sidewalks, bike paths, trails and parks that remain open to vehicles, bicycles and other pedestrians. There is no official timing, course closure, traffic control, medical support, aid station or transportation provided. I am responsible for my own navigation, hydration, nutrition, clothing and safe conduct, and I agree to obey all traffic laws, signals and signs and all state and local laws while participating.</p>
+                <p>I assume all risks associated with participating in this event, including but not limited to: falls; physical contact with other participants, volunteers, organizers, spectators and members of the public; collisions with vehicles, bicycles or other obstacles; the effects of the weather, including cold temperatures, snow, ice, rain and wind; traffic and the condition of the roads, trails and surrounding terrain; and the contraction of a communicable disease resulting from contact with other participants or members of the public. I assume all such risks, being known, appreciated and accepted by me.</p>
+                <p>I understand that optional stops along the course are at independent businesses that are not sponsors of or affiliated with this event. Any food or beverages, including alcohol, that I choose to purchase or consume at those stops are at my own expense, discretion and risk. I will not participate while impaired.</p>
+                <p>I understand that handing out gift cards to members of the public is a voluntary part of this event. I agree to approach people respectfully, to accept a decline graciously, and to use good judgment about my own safety and the comfort of others while doing so.</p>
+                <p>I authorize event organizers to seek emergency medical treatment on my behalf should I be unable to do so, and I accept responsibility for the cost of any such treatment.</p>
+                <p>In consideration for being permitted to participate in this event, I agree to assume all risks and to release, hold harmless, and covenant not to sue Farm 2 Families, the Giving Gallop, its organizers, guides, volunteers, representatives, families and successors, Boston Children's Hospital and its affiliates, Miles for Miracles, any designated beneficiaries, sponsors, officials, participating clubs, communities, organizations, friends of the event, the businesses at any optional stop, the Town of Arlington, the City of Cambridge, and all other government or public entities (collectively, the "Releasees") for any claim, loss or liability that I may have arising out of my participation in the event, including bodily injury, death or property damage, whether caused by the negligence or carelessness on the part of any of the Releasees or otherwise, including but not limited to dangerous or defective property or equipment owned, maintained or controlled by any of them.</p>
+                <p>I grant permission to all of the foregoing to use my name, photographs, motion pictures, recordings or any other record of this event for any legitimate purpose, including promoting future events, without compensation.</p>
+                <p>If I am signing on behalf of a participant under 18 years of age, I confirm that I am that participant's parent or legal guardian, that I have the authority to sign this waiver on their behalf, that I have explained its contents to them, and that I agree to every term of this waiver both for myself and for the minor participant. I agree that the minor will be accompanied and supervised by me or another responsible adult for the entire event.</p>
+                <p>I have carefully read this Waiver and Release of Liability and fully understand its contents. I am aware that by agreeing to this Waiver and Release of Liability I am waiving legal rights and discharging the Releasees from any claims, losses or liabilities described herein, and knowing this, I sign it of my own free will. I understand and agree that this Waiver and Release of Liability is binding on my heirs, assigns and legal representatives, and that if any portion is held invalid, the remainder shall continue in full force and effect.</p>
+              </div>
             </details>
             <label class="check"><input type="checkbox" id="agree" name="agreed" required>I have read and agree to the waiver</label>
-            <div class="fld"><label class="lbl" for="signature">Type your full name to sign</label><input class="field sig" id="signature" name="signature" type="text" placeholder="Kris Kringle" autocomplete="name" required></div>
+            <label class="check"><input type="checkbox" id="isMinor" name="isMinor">I'm signing for a galloper under 18 as their parent or legal guardian</label>
+            <div class="fld" id="guardian-fld" hidden><label class="lbl" for="guardianName">Parent / guardian full name</label><input class="field" id="guardianName" name="guardianName" type="text" placeholder="Carol Kringle" autocomplete="off"></div>
+            <div class="fld"><label class="lbl" for="signature" id="sig-label">Type your full name to sign</label><input class="field sig" id="signature" name="signature" type="text" placeholder="Kris Kringle" autocomplete="name" required></div>
           </div>
 
           <div id="form-error" class="err" tabindex="-1" hidden></div>
@@ -92,36 +115,29 @@
         <div id="signup-done" class="done" hidden>
           <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A8E6CF"/><path d="M7 12l3 3 7-7"/></svg>
           <h2 style="font-size:40px">You're in, <span data-first></span>!</h2>
-          <p>You're officially a galloper, committed to <strong data-amount></strong> in gift cards. <span data-cheer></span></p>
+          <p>You're officially a <span data-mode>galloper</span>, committed to <strong data-amount></strong> in gift cards. <span data-cheer></span></p>
           <ul class="roster" data-list></ul>
-          <div class="btn-row" style="justify-content:center">
-            <button type="button" id="add-another" class="btn btn-white">Add another galloper</button>
-            <button type="button" id="to-step-2" class="btn btn-red">Next: donate to Boston Children's</button>
-          </div>
-          <p class="fine">Bringing the family or a friend? Add them one at a time, then move on to step 2 once.</p>
+          <button type="button" id="add-another" class="btn btn-white">Add another galloper</button>
+          <p class="fine">Bringing the family or a friend? Add them one at a time. Then scroll down to Step 2.</p>
         </div>
         </div>
       </div>
 
       <!-- STEP 2 -->
-      <div id="step-2" class="step" hidden>
+      <div id="step-2" class="step">
         <div class="step-head" data-step="2" data-state="todo">
           <div class="step-num"><span class="n">2</span><svg class="tick" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
-          <div><div class="step-title">Donate to Boston Children's</div><div class="step-sub">$25 minimum per galloper. The Every Child Fund, via Miles for Miracles.</div></div>
+          <div><div class="step-title">Step 2 – Donate to Boston Children's</div><div class="step-sub">Any amount. The Every Child Fund, via Miles for Miracles.</div></div>
         </div>
         <div class="step-body">
           <div id="step-2-form" class="stack" style="gap:18px">
-            <p>Last thing, and it's the part that matters most: a donation of at least $25 for <span data-count>you</span> to Boston Children's Hospital's Every Child Fund. The button opens our Miles for Miracles page in a new tab. Come back here when you're done.</p>
+            <p>The part that matters most: a donation of any amount to Boston Children's Hospital's Every Child Fund. Our 2026 goal is $15,000, and every dollar counts. The button opens our Miles for Miracles page in a new tab.</p>
             <a id="donate-now" class="btn btn-green" href="#" data-donate><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg>Donate on the Boston Children's page</a>
-            <div id="donated-check" class="waiver" hidden>
-              <p><strong>Made your donation?</strong> Boston Children's handles the payment on their site, so we can't see it from here. Tap below to let us know, and we'll mark you complete.</p>
-              <button type="button" id="i-donated" class="btn btn-red" style="align-self:flex-start">I made my donation</button>
-            </div>
           </div>
           <div id="all-done" class="done" hidden>
             <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFE3E7"/><path d="M12 17s-5-3.2-6.5-6.4A3.5 3.5 0 0 1 12 8.3a3.5 3.5 0 0 1 6.5 2.3C17 13.8 12 17 12 17z"/></svg>
-            <h2 style="font-size:40px">That's a wrap. You're all set!</h2>
-            <p>Signed up, gift cards promised, donation made. All that's left is Saturday, December 12 at 11:00 AM, Robbins Farm Park. Thank you for giving every step of the way.</p>
+            <h2 style="font-size:40px">Step 2 complete. You're a hero!</h2>
+            <p>Thank you for giving to Boston Children's. Somewhere a kid is getting better care because you decided to run around Arlington in a silly outfit. That's the whole idea. See you Saturday, December 12 at 11:00 AM, Robbins Farm Park.</p>
             <div class="btn-row" style="justify-content:center"><a class="btn btn-white" href="course.html">See the course</a><a class="btn btn-white" href="faq.html">Read the FAQs</a></div>
           </div>
         </div>
@@ -134,7 +150,7 @@
 <footer>
   <div class="wrap foot">
     <div class="name">Farm 2 Families Giving Gallop</div>
-    <nav><a href="course.html">Course Info</a><a href="faq.html">FAQs</a><a href="signup.html">Sign Up</a><a href="mailto:[EMAIL]">Contact</a></nav>
+    <nav><a href="course.html">Course Info</a><a href="faq.html">FAQs</a><a href="signup.html">Sign Up</a><a href="mailto:farm2familiesgivinggallop@gmail.com">Contact</a></nav>
     <div>© 2026 Farm 2 Families · Arlington, MA</div>
   </div>
 </footer>
