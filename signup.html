@@ -22,7 +22,7 @@
       <a href="index.html">Home</a>
       <a href="course.html">Course Info</a>
       <a href="faq.html">FAQs</a>
-      <a href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Donate</a>
+      <a href="#" data-donate>Donate</a>
       <a href="signup.html" aria-current="page">Sign Up</a>
     </nav>
   </div>
@@ -37,58 +37,97 @@
       <div class="quick">
         <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><div><strong>Saturday, Dec 12, 2026 · 11:00 AM</strong><br>Robbins Farm Park, Arlington, MA</div></div>
         <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/></svg><div><strong>Bring $25+ in wrapped gift cards.</strong><br>Lots of small ones beat one big one. Think Amazon, Target, Stop &amp; Shop.</div></div>
-        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><div><strong>Then donate $25+ to Boston Children's.</strong><br>Every Child Fund via Miles for Miracles. <a href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Donate here</a>.</div></div>
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg><div><strong>Then donate $25+ to Boston Children's.</strong><br>Every Child Fund via Miles for Miracles. <a href="#" data-donate>Donate here</a>.</div></div>
       </div>
       <img src="crosswalk.jpg" alt="Gallopers in sequined skirts and costumes crossing Mass Ave with gift cards">
     </div>
 
-    <div class="form-card">
-      <form id="signup-form" class="stack" style="gap:22px" novalidate>
-        <div class="grid-2">
-          <div class="fld"><label class="lbl" for="firstName">First name</label><input class="field" id="firstName" name="firstName" type="text" placeholder="Kris" autocomplete="given-name" required></div>
-          <div class="fld"><label class="lbl" for="lastName">Last name</label><input class="field" id="lastName" name="lastName" type="text" placeholder="Kringle" autocomplete="family-name" required></div>
-        </div>
-        <div class="fld"><label class="lbl" for="email">Email</label><input class="field" id="email" name="email" type="email" placeholder="you@northpole.com" autocomplete="email" required></div>
+    <div class="form-card steps">
 
-        <div class="fld" style="gap:10px">
-          <div class="lbl" id="amount-label">Gift cards I'm bringing to hand out</div>
-          <div class="amounts" role="group" aria-labelledby="amount-label">
-            <button type="button" class="amt" data-amount="25">$25</button>
-            <button type="button" class="amt" data-amount="50">$50</button>
-            <button type="button" class="amt" data-amount="100">$100</button>
-            <button type="button" class="amt" data-amount="250">$250</button>
+      <!-- STEP 1 -->
+      <div id="step-1" class="step">
+        <div class="step-head" data-step="1" data-state="active">
+          <div class="step-num"><span class="n">1</span><svg class="tick" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
+          <div><div class="step-title">Sign up to Gallop</div><div class="step-sub">Name, email, gift cards, waiver. One minute, tops.</div></div>
+        </div>
+        <div class="step-body">
+        <form id="signup-form" class="stack" style="gap:22px" novalidate>
+          <div class="grid-2">
+            <div class="fld"><label class="lbl" for="firstName">First name</label><input class="field" id="firstName" name="firstName" type="text" placeholder="Kris" autocomplete="given-name" required></div>
+            <div class="fld"><label class="lbl" for="lastName">Last name</label><input class="field" id="lastName" name="lastName" type="text" placeholder="Kringle" autocomplete="family-name" required></div>
           </div>
-          <div class="custom">
-            <span class="dollar">$</span>
-            <input class="field" id="amount" name="amount" type="number" min="25" step="5" value="25" aria-label="Custom gift card amount">
-            <span class="hint">$25 minimum. Any amount above that is fair game, and the more the merrier!</span>
+          <div class="fld"><label class="lbl" for="email">Email</label><input class="field" id="email" name="email" type="email" placeholder="you@northpole.com" autocomplete="email" required></div>
+
+          <div class="fld" style="gap:10px">
+            <div class="lbl" id="amount-label">Gift cards I'm bringing to hand out</div>
+            <div class="amounts" role="group" aria-labelledby="amount-label">
+              <button type="button" class="amt" data-amount="25">$25</button>
+              <button type="button" class="amt" data-amount="50">$50</button>
+              <button type="button" class="amt" data-amount="100">$100</button>
+              <button type="button" class="amt" data-amount="250">$250</button>
+            </div>
+            <div class="custom">
+              <span class="dollar">$</span>
+              <input class="field" id="amount" name="amount" type="number" min="25" step="5" value="25" aria-label="Custom gift card amount">
+              <span class="hint">$25 minimum. Any amount above that is fair game, and the more the merrier!</span>
+            </div>
           </div>
+
+          <div class="waiver">
+            <div class="lbl">Waiver</div>
+            <p>This is an open, unmarked course through neighborhoods, trails and sidewalks with cars, bikes, pedestrians, wild animals, reindeer, etc. I'm participating voluntarily, at my own risk, I'll follow all state and local laws, and I release Farm 2 Families and its organizers from any liability.</p>
+            <details class="full-waiver">
+              <summary>Read the full waiver</summary>
+              <p>[FULL WAIVER TEXT — paste your waiver here, or ask Claude to draft one for review.]</p>
+            </details>
+            <label class="check"><input type="checkbox" id="agree" name="agreed" required>I have read and agree to the waiver</label>
+            <div class="fld"><label class="lbl" for="signature">Type your full name to sign</label><input class="field sig" id="signature" name="signature" type="text" placeholder="Kris Kringle" autocomplete="name" required></div>
+          </div>
+
+          <div id="form-error" class="err" tabindex="-1" hidden></div>
+          <button type="submit" class="btn btn-red">Count me in!</button>
+          <p class="fine">Your sign-up lands in our Google Sheet so we know how many gallopers to expect. We'll only email you about the event.</p>
+        </form>
+
+        <div id="signup-done" class="done" hidden>
+          <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A8E6CF"/><path d="M7 12l3 3 7-7"/></svg>
+          <h2 style="font-size:40px">You're in, <span data-first></span>!</h2>
+          <p>You're officially a galloper, committed to <strong data-amount></strong> in gift cards. <span data-cheer></span></p>
+          <ul class="roster" data-list></ul>
+          <div class="btn-row" style="justify-content:center">
+            <button type="button" id="add-another" class="btn btn-white">Add another galloper</button>
+            <button type="button" id="to-step-2" class="btn btn-red">Next: donate to Boston Children's</button>
+          </div>
+          <p class="fine">Bringing the family or a friend? Add them one at a time, then move on to step 2 once.</p>
         </div>
-
-        <div class="waiver">
-          <div class="lbl">Waiver</div>
-          <p>This is an open, unmarked course through neighborhoods, trails and sidewalks with cars, bikes, pedestrians, wild animals, reindeer, etc. I'm participating voluntarily, at my own risk, I'll follow all state and local laws, and I release Farm 2 Families and its organizers from any liability.</p>
-          <details class="full-waiver">
-            <summary>Read the full waiver</summary>
-            <p>[FULL WAIVER TEXT — paste your waiver here, or ask Claude to draft one for review.]</p>
-          </details>
-          <label class="check"><input type="checkbox" id="agree" name="agreed" required>I have read and agree to the waiver</label>
-          <div class="fld"><label class="lbl" for="signature">Type your full name to sign</label><input class="field sig" id="signature" name="signature" type="text" placeholder="Kris Kringle" autocomplete="name" required></div>
         </div>
-
-        <div id="form-error" class="err" tabindex="-1" hidden></div>
-        <button type="submit" class="btn btn-red">Count me in!</button>
-        <p class="fine">Your sign-up lands in our Google Sheet so we know how many gallopers to expect. We'll only email you about the event.</p>
-      </form>
-
-      <div id="signup-done" class="done" hidden>
-        <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#1F6F5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A8E6CF"/><path d="M7 12l3 3 7-7"/></svg>
-        <h2 style="font-size:40px">You're in, <span data-first></span>!</h2>
-        <p>Thanks for committing <strong data-amount></strong> in gift cards. We'll email you at <strong data-email></strong> with any updates before gallop day. Now go find a Santa suit.</p>
-        <a class="btn btn-red" href="https://www.childrenshospital.org/" target="_blank" rel="noopener">Make your $25+ donation</a>
       </div>
-    </div>
 
+      <!-- STEP 2 -->
+      <div id="step-2" class="step" hidden>
+        <div class="step-head" data-step="2" data-state="todo">
+          <div class="step-num"><span class="n">2</span><svg class="tick" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
+          <div><div class="step-title">Donate to Boston Children's</div><div class="step-sub">$25 minimum per galloper. The Every Child Fund, via Miles for Miracles.</div></div>
+        </div>
+        <div class="step-body">
+          <div id="step-2-form" class="stack" style="gap:18px">
+            <p>Last thing, and it's the part that matters most: a donation of at least $25 for <span data-count>you</span> to Boston Children's Hospital's Every Child Fund. The button opens our Miles for Miracles page in a new tab. Come back here when you're done.</p>
+            <a id="donate-now" class="btn btn-green" href="#" data-donate><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/></svg>Donate on the Boston Children's page</a>
+            <div id="donated-check" class="waiver" hidden>
+              <p><strong>Made your donation?</strong> Boston Children's handles the payment on their site, so we can't see it from here. Tap below to let us know, and we'll mark you complete.</p>
+              <button type="button" id="i-donated" class="btn btn-red" style="align-self:flex-start">I made my donation</button>
+            </div>
+          </div>
+          <div id="all-done" class="done" hidden>
+            <svg width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#C8102E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#FFE3E7"/><path d="M12 17s-5-3.2-6.5-6.4A3.5 3.5 0 0 1 12 8.3a3.5 3.5 0 0 1 6.5 2.3C17 13.8 12 17 12 17z"/></svg>
+            <h2 style="font-size:40px">That's a wrap. You're all set!</h2>
+            <p>Signed up, gift cards promised, donation made. All that's left is Saturday, December 12 at 11:00 AM, Robbins Farm Park. Thank you for giving every step of the way.</p>
+            <div class="btn-row" style="justify-content:center"><a class="btn btn-white" href="course.html">See the course</a><a class="btn btn-white" href="faq.html">Read the FAQs</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 

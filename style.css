@@ -214,3 +214,24 @@ details.full-waiver p{margin-top:8px}
 .still{background:var(--pink-tint)}
 .still .wrap{padding-top:64px;padding-bottom:64px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
 .still p{font-size:18px}
+
+/* Two-step sign-up */
+.steps{gap:0;padding:0;overflow:hidden}
+.step{padding:32px 40px}
+.step+.step{border-top:3px solid var(--mint-tint)}
+@media (max-width:640px){.step{padding:24px}}
+.step-head{display:flex;gap:16px;align-items:center;margin-bottom:22px}
+.step-num{width:52px;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:26px;font-weight:700;flex-shrink:0;background:var(--mint-tint);color:var(--green);transition:background .2s,color .2s}
+.step-num .tick{display:none}
+.step-head[data-state="active"] .step-num{background:var(--red);color:var(--white)}
+.step-head[data-state="done"] .step-num{background:var(--green);color:var(--white)}
+.step-head[data-state="done"] .step-num .n{display:none}
+.step-head[data-state="done"] .step-num .tick{display:block}
+.step-title{font-family:var(--display);font-size:26px;font-weight:700;line-height:1.1}
+.step-sub{font-size:15px;color:var(--muted);font-weight:600}
+.step-head[data-state="done"] .step-title{color:var(--green)}
+.step.collapsed .step-body{display:none}
+.step.collapsed .step-head{margin-bottom:0}
+.step-head[data-state="todo"]{opacity:.5}
+.roster{list-style:none;margin:0;padding:12px 18px;background:var(--mint-tint);border-radius:16px;font-weight:700;text-align:left;width:100%;max-width:420px;box-sizing:border-box}
+.roster li+li{margin-top:6px}
