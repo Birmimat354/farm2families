@@ -113,10 +113,9 @@ p{margin:0}
 .stat:nth-child(odd) b{color:var(--red)}.stat:nth-child(even) b{color:var(--green)}
 .stat span{font-weight:700;font-size:18px}
 
-.band{position:relative;overflow:hidden}
-.band img{width:100%;height:560px;object-fit:cover;object-position:center 70%}
-.band figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 24px;background:rgba(31,42,51,.72);color:var(--white);font-family:var(--display);font-size:clamp(18px,2.5vw,26px);font-weight:600;text-align:center}
-@media (max-width:640px){.band img{height:320px}}
+.band{background:var(--ink)}
+.band img{width:100%;max-width:1440px;margin:0 auto;height:auto;display:block}
+.band figcaption{padding:22px 24px;color:var(--white);font-family:var(--display);font-size:clamp(18px,2.5vw,26px);font-weight:600;text-align:center}
 
 .cta{background:var(--mint-tint)}
 .cta-inner{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding-top:80px;padding-bottom:80px}
@@ -256,3 +255,17 @@ details.full-waiver p{margin-top:8px}
 .waiver-text p{font-size:14px;line-height:1.55}
 .step-head[data-state="todo"]{opacity:1}
 .step-head[data-state="todo"] .step-num{background:var(--mint-tint);color:var(--green)}
+
+/* v4: course stops + icons */
+.stop-icon{width:72px;height:72px;flex-shrink:0}
+.route-strip{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;background:var(--mint-soft);border-radius:28px;padding:20px 16px}
+.stop2{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:20px;padding:12px 18px 12px 12px;flex:1 1 220px;max-width:280px;transition:transform .2s}
+.stop2:hover{transform:translateY(-4px)}
+.stop2 small{display:block;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.06em}
+.stop2 b{display:block;font-family:var(--display);font-size:19px;font-weight:700;line-height:1.1}
+.stop2 span{font-size:13px;font-weight:600;color:var(--muted)}
+.stop2 .stop-icon{width:56px;height:56px}
+.route-arrow{width:22px;height:22px;flex-shrink:0;border-right:4px solid var(--green);border-bottom:4px solid var(--green);transform:rotate(-45deg);margin:0 2px;opacity:.6}
+@media (max-width:860px){.route-strip{flex-direction:column}.route-arrow{transform:rotate(45deg);margin:-4px 0}.stop2{max-width:none;width:100%}}
+.leg-ico{display:flex;align-items:center;justify-content:center;padding:28px;background:var(--mint-soft);border-bottom:3px solid var(--mint-tint)}
+.leg-ico .stop-icon{width:96px;height:96px}
